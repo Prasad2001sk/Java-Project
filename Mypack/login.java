@@ -1,0 +1,78 @@
+package Mypack;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.applet.*;
+
+
+public class login extends JFrame implements ActionListener 
+{
+	JButton b1,b2;
+	JTextField t1;
+	
+	public login()
+	{
+		setSize(800,500);
+		setLocation(280,100);
+		
+		getContentPane().setBackground(Color.WHITE);
+		setLayout(null);
+
+
+		setTitle("QUIZ EXAM");
+		//Data Type
+		JLabel j1;
+		JLabel j2;
+		//JTextField t1;
+		
+
+		ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("quiz.jpg"));
+		JLabel label=new JLabel(i1);
+		label.setBounds(0,0,400,500);
+		add(label);
+		
+		j1=new JLabel("Mid-Exam");
+		j1.setBounds(450,80,200,50);
+		j1.setFont(new Font("Mongolian Baiti",Font.BOLD,40));
+		j1.setForeground(Color.RED);
+		add(j1);
+		j2=new JLabel("Enter Your Name");
+		j2.setBounds(500,150,200,50);
+		j2.setForeground(Color.BLUE);
+		add(j2);
+		t1=new JTextField();
+		t1.setBounds(430,195,250,30);
+		add(t1);
+		b1=new JButton("Check Rules");
+		b1.setBounds(420,250,130,30);
+		b1.setBackground(new Color(255,51,51));
+		b1.setForeground(Color.WHITE);
+		b1.addActionListener(this);
+		add(b1);
+		b2=new JButton("Exit");
+		b2.setBounds(570,250,130,30);
+		b2.setBackground(new Color(51,204,255));
+		b2.setForeground(Color.WHITE);
+		b2.addActionListener(this);
+		add(b2);
+		
+		setVisible(true);
+
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() == b1)
+		{
+			String name=t1.getText();
+			this.setVisible(false);
+			new rules(name);
+		}
+		else
+		{
+			System.exit(0);
+		}
+	}
+		
+}
+
